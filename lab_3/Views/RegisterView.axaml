@@ -1,0 +1,21 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:lab_3.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="lab_3.Views.RegisterView"
+             x:DataType="viewModels:RegisterViewModel">
+  <Design.DataContext>
+      <viewModels:RegisterViewModel/>
+  </Design.DataContext>
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="400">
+        <TextBlock Text="Register Form" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"/>
+        <TextBox Text="{Binding Username}" Watermark="Username" Margin="10, 10" HorizontalAlignment="Stretch"/>
+        <TextBox Text="{Binding Password}" Watermark="Password"  PasswordChar="*" Margin="10,10" HorizontalAlignment="Stretch"/>
+        <Button Content="Register" Command="{Binding RegisterCommand}" Margin="10 10" HorizontalAlignment="Center"/>
+        <Button Content="Back" Command="{Binding GoBackCommand}" HorizontalAlignment="Center" />
+    </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,24 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="lab_3.App"
+             xmlns:local="using:lab_3"
+             xmlns:vm="clr-namespace:lab_3.ViewModels"
+             xmlns:views="clr-namespace:lab_3.Views"
+             RequestedThemeVariant="Default">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+             <Application.DataTemplates>
+                 <DataTemplate DataType="{x:Type vm:ChampionViewModel}">
+                     <views:ChampionView />
+                 </DataTemplate>
+                 <DataTemplate DataType="{x:Type vm:LoginViewModel}">
+                     <views:LoginView />
+                 </DataTemplate>
+                 <!-- Add other view mappings here -->
+             </Application.DataTemplates>
+
+  
+    <Application.Styles>
+        <FluentTheme />
+    </Application.Styles>
+</Application>

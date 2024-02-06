@@ -1,0 +1,44 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:lab_3.ViewModels"
+             xmlns:models="clr-namespace:lab_3.Models"
+             xmlns:global="clr-namespace:"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="lab_3.Views.ChampionView"
+             x:DataType="viewModels:ChampionViewModel">
+    <UserControl.DataContext>
+        <viewModels:ChampionViewModel/>
+    </UserControl.DataContext>
+    <ListBox ItemsSource="{Binding Champions}">
+        <ListBox.ItemTemplate>
+            <DataTemplate>
+                <StackPanel Orientation="Horizontal">
+                    <!-- Image on the left -->
+                    <Image Width="100" Height="100" Source="{Binding ImageSource}" Stretch="UniformToFill"/>
+                
+                    <!-- Text details on the right -->
+                    <StackPanel Orientation="Vertical" Margin="10,0,0,0">
+                        <!-- Champion Name and Title -->
+                        <TextBlock FontWeight="Bold" Text="{Binding Name}" />
+                        <TextBlock FontStyle="Italic" Opacity="0.7" Text="{Binding Title}" />
+                    
+                        <!-- Champion Info -->
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Attack: " />
+                            <TextBlock Text="{Binding Info.Attack}" />
+                            <TextBlock Text="  Defense: " />
+                            <TextBlock Text="{Binding Info.Defense}" />
+                            <TextBlock Text="  Magic: " />
+                            <TextBlock Text="{Binding Info.Magic}" />
+                            <TextBlock Text="  Difficulty: " />
+                            <TextBlock Text="{Binding Info.Difficulty}" />
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+    </ListBox>
+
+</UserControl>

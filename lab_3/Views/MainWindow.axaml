@@ -1,0 +1,46 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:lab_3.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:lab_3.Views"
+        xmlns:global="clr-namespace:"
+        xmlns:viewModels="clr-namespace:lab_3.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="lab_3.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="lab_3">
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+    <!-- DataTemplates to map ViewModels to Views -->
+    <Window.DataTemplates>
+        <DataTemplate DataType="vm:LoginViewModel" >
+            <views:LoginView/>
+        </DataTemplate>
+        <DataTemplate DataType="vm:RegisterViewModel">
+            <views:RegisterView/>
+        </DataTemplate>
+        <DataTemplate DataType="vm:ChampionViewModel">
+            <views:ChampionView/>
+        </DataTemplate>
+        <DataTemplate DataType="vm:MainWindowViewModel">
+            <views:MainWindow/>
+        </DataTemplate>
+    </Window.DataTemplates>
+    
+    <Grid>
+        <!-- StackPanel for buttons aligned to the left -->
+        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Vertical"  HorizontalAlignment="Center" VerticalAlignment="Top" IsVisible="{Binding IsMainScreenVisible}">
+            <Button Content="Login" Command="{Binding NavigateCommand}" CommandParameter="Login" Margin="10" HorizontalAlignment="Stretch"/>
+            <Button Content="Register" Command="{Binding NavigateCommand}" CommandParameter="Register" Margin="10" HorizontalAlignment="Stretch"/>
+        </StackPanel>
+        <!-- Image aligned to the right -->
+        <Image Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/Assets/lol.png" Width="400" Height="400"/>
+
+        <!-- ContentControl for dynamic view content -->
+        <ContentControl Content="{Binding CurrentViewModel}"/>
+    </Grid>
+
+</Window>

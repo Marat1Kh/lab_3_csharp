@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="lab_3/App.axaml" value="lab_3/lab_3.csproj" />
+        <entry key="lab_3/Views/ChampionDetailView.axaml" value="lab_3/lab_3.csproj" />
+        <entry key="lab_3/Views/ChampionView.axaml" value="lab_3/lab_3.csproj" />
+        <entry key="lab_3/Views/LoggedInView.axaml" value="lab_3/lab_3.csproj" />
+        <entry key="lab_3/Views/LoginPage.axaml" value="lab_3/lab_3.csproj" />
+        <entry key="lab_3/Views/LoginView.axaml" value="lab_3/lab_3.csproj" />
+        <entry key="lab_3/Views/LoginWindow.axaml" value="lab_3/lab_3.csproj" />
+        <entry key="lab_3/Views/MainView.axaml" value="lab_3/lab_3.csproj" />
+        <entry key="lab_3/Views/MainWindow.axaml" value="lab_3/lab_3.csproj" />
+        <entry key="lab_3/Views/MessageDialog.axaml" value="lab_3/lab_3.csproj" />
+        <entry key="lab_3/Views/RegisterView.axaml" value="lab_3/lab_3.csproj" />
+      </map>
+    </option>
+  </component>
+</project>
