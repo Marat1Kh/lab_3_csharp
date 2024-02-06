@@ -14,7 +14,6 @@
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
-    <!-- DataTemplates to map ViewModels to Views -->
     <Window.DataTemplates>
         <DataTemplate DataType="vm:LoginViewModel" >
             <views:LoginView/>
@@ -31,15 +30,12 @@
     </Window.DataTemplates>
     
     <Grid>
-        <!-- StackPanel for buttons aligned to the left -->
         <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Vertical"  HorizontalAlignment="Center" VerticalAlignment="Top" IsVisible="{Binding IsMainScreenVisible}">
             <Button Content="Login" Command="{Binding NavigateCommand}" CommandParameter="Login" Margin="10" HorizontalAlignment="Stretch"/>
             <Button Content="Register" Command="{Binding NavigateCommand}" CommandParameter="Register" Margin="10" HorizontalAlignment="Stretch"/>
         </StackPanel>
-        <!-- Image aligned to the right -->
         <Image Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/Assets/lol.png" Width="400" Height="400"/>
 
-        <!-- ContentControl for dynamic view content -->
         <ContentControl Content="{Binding CurrentViewModel}"/>
     </Grid>
 

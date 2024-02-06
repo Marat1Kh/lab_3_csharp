@@ -1,60 +1,3 @@
-// using System.ComponentModel;
-// using System.Runtime.CompilerServices;
-// using System.Windows.Input;
-//
-// namespace lab_3.ViewModels
-// {
-//     public class MainWindowViewModel : INotifyPropertyChanged
-//     {
-//         public ICommand NavigateLoginCommand { get; }
-//         public ICommand NavigateRegisterCommand { get; }
-//         private object _currentViewModel;
-//         public object CurrentViewModel
-//         {
-//             get => _currentViewModel;
-//             set
-//             {
-//                 if (_currentViewModel != value)
-//                 {
-//                     _currentViewModel = value;
-//                     OnPropertyChanged();
-//                 }
-//             }
-//         }
-//
-//         public MainWindowViewModel()
-//         {
-//             var loginViewModel = new LoginViewModel();
-//             loginViewModel.LoginResult += OnLoginResult;
-//             CurrentViewModel = loginViewModel;
-//         }
-//
-//         private void OnLoginResult(object sender, bool isSuccess)
-//         {
-//             if (isSuccess)
-//             {
-//                 CurrentViewModel = new ChampionViewModel();
-//             }
-//             else
-//             {
-//                 // Handle login failure
-//             }
-//         }
-//
-//         private void onRegisterResult(object sender, bool isSuccess)
-//         {
-//             if (isSuccess)
-//             {
-//                 CurrentViewModel = new LoginViewModel();
-//             }
-//         }
-//
-//         public event PropertyChangedEventHandler PropertyChanged;
-//         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-//         {
-//             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-//         }
-//     }
 using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -68,7 +11,7 @@ namespace lab_3.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        private bool _isMainScreenVisible = true; // Assuming true by default
+        private bool _isMainScreenVisible = true; 
         public bool IsMainScreenVisible
         {
             get => _isMainScreenVisible;

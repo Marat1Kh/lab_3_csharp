@@ -11,12 +11,9 @@ namespace lab_3.ViewModels
 {
     public class ChampionViewModel : ViewModelBase
     {
-
         private readonly ChampionService _championService;
 
         public ObservableCollection<Champion> Champions { get; }
-
-
 
         public ChampionViewModel()
         {

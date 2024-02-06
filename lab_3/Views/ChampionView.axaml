@@ -15,15 +15,10 @@
         <ListBox.ItemTemplate>
             <DataTemplate>
                 <StackPanel Orientation="Horizontal">
-                    <!-- Image on the left -->
                     <Image Width="100" Height="100" Source="{Binding ImageSource}" Stretch="UniformToFill"/>
-                
-                    <!-- Text details on the right -->
                     <StackPanel Orientation="Vertical" Margin="10,0,0,0">
-                        <!-- Champion Name and Title -->
                         <TextBlock FontWeight="Bold" Text="{Binding Name}" />
                         <TextBlock FontStyle="Italic" Opacity="0.7" Text="{Binding Title}" />
-                    
                         <!-- Champion Info -->
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Attack: " />
