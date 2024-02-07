@@ -43,8 +43,6 @@ namespace lab_3.ViewModels
                 }
             }
         }
-        // Assuming this method is called upon successful login
-        
-
+   
     }
 }

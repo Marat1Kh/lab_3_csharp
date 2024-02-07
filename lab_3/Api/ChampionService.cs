@@ -55,7 +55,7 @@ namespace lab_3.Models
             {
                 await connection.OpenAsync();
         
-                // Check if the version already exists to avoid duplicates
+                // Check if the version already exists
                 var checkCmd = new NpgsqlCommand("SELECT COUNT(*) FROM versions WHERE versions = @versions", connection);
                 checkCmd.Parameters.AddWithValue("versions", versions);
                 var exists = (long)await checkCmd.ExecuteScalarAsync();
@@ -72,7 +72,7 @@ namespace lab_3.Models
 
         public async Task<string> GetImageUrlForChampion(string championId)
         {
-            // Fetch the latest version
+            // Fetches the latest version
             var latestVersion = await GetLatestVersionAsync();
             var imageUrl = $"https://ddragon.leagueoflegends.com/cdn/{latestVersion}/img/champion/{championId}.png";
 

@@ -24,7 +24,7 @@ namespace lab_3.ViewModels
             private set => this.RaiseAndSetIfChanged(ref _currentViewModel, value);
         }
         private readonly ChampionService _championService;
-
+    // 
         public ICommand NavigateCommand { get; private set; }
         public MainWindowViewModel()
         {
@@ -37,7 +37,7 @@ namespace lab_3.ViewModels
         {
             ShowMainMenu();
         }
-
+        // navigates screens
         private void ExecuteNavigateCommand(string destination)
         {
             Console.WriteLine($"Attempting to navigate to: {destination}");
@@ -45,13 +45,13 @@ namespace lab_3.ViewModels
             switch (destination)
             {
                 case "Login":
-                    ShowLoginView(); // Use the helper method to navigate to LoginView
+                    ShowLoginView(); 
                     break;
                 case "Register":
-                    ShowRegisterView(); // Use the helper method to navigate to RegisterView
+                    ShowRegisterView(); 
                     break;
                 default:
-                    ShowMainMenu(); // Show the main menu or main screen if the destination is unknown
+                    ShowMainMenu(); 
                     break;
             }
         }
@@ -60,9 +60,7 @@ namespace lab_3.ViewModels
         {
             if (isSuccess)
             {
-                // Navigate to ChampionView upon successful login
                 CurrentViewModel = new ChampionViewModel();
-                // Optionally unsubscribe from the event to prevent memory leaks
                 if (sender is LoginViewModel loginViewModel)
                 {
                     loginViewModel.LoginResult -= OnLoginSuccess;
@@ -70,7 +68,7 @@ namespace lab_3.ViewModels
             }
             else
             {
-                // Handle login failure if necessary
+                Console.WriteLine("Login failed");
             }
         }
 
@@ -85,7 +83,7 @@ namespace lab_3.ViewModels
                 }
                 else
                 {
-                    
+                    Console.WriteLine("Registration failed");
                 }
             }
         }
@@ -95,7 +93,6 @@ namespace lab_3.ViewModels
             loginViewModel.NavigateBack += ShowMainMenu;
             loginViewModel.LoginResult += OnLoginSuccess;
             CurrentViewModel = loginViewModel;
-            
         }
 
         private void ShowRegisterView()
@@ -107,7 +104,7 @@ namespace lab_3.ViewModels
         }
         private void ShowMainMenu()
         {
-            IsMainScreenVisible = true; // Show navigation buttons when returning to the main screen
+            IsMainScreenVisible = true;
             CurrentViewModel = null;
         }
     }

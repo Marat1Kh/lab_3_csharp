@@ -44,7 +44,6 @@ namespace lab_3.ViewModels
             using (var connection = new NpgsqlConnection(_connectionString))
             {
                 await connection.OpenAsync();
-
                 // Check if username already exists
                 using (var checkCommand =
                        new NpgsqlCommand("SELECT COUNT(*) FROM users WHERE username = @username", connection))
@@ -58,14 +57,12 @@ namespace lab_3.ViewModels
                         return;
                     }
                 }
-
-                // Insert new user if username does not exist
+                // insert new user if username does not exist
                 using (var command =
                        new NpgsqlCommand("INSERT INTO users (username, password) VALUES (@username, @password)",
                            connection))
                 {
                     command.Parameters.AddWithValue("username", Username);
-                    // Hash the password before storing it
                     var hashedPassword = BCrypt.Net.BCrypt.HashPassword(Password);
                     command.Parameters.AddWithValue("password", hashedPassword);
                     var result = await command.ExecuteNonQueryAsync();

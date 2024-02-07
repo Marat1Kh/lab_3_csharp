@@ -34,7 +34,7 @@ namespace lab_3.ViewModels
                     var imageUrl = await _championService.GetImageUrlForChampion(champion.Id);
                     var image = await LoadImageAsync(imageUrl);
                     champion.ImageSource =
-                        image; // Assuming you have a property named ImageSource in your Champion model
+                        image; 
                     Champions.Add(champion);
                 }
             }
